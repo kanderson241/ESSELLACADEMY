@@ -1,33 +1,63 @@
-
-/**
- * Write a description of class SHOW here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import javax.swing.JOptionPane;
+import java.io.*;
 public class SHOW
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class SHOW
-     */
+    private TICKET orderList[];
+    int noOfTickets;
+    FILEREADCSV orderFile;
     public SHOW()
     {
-        // initialise instance variables
-        x = 0;
+
+        orderFile = new FILEREADCSV();
+
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
+    public void processTicketOrder() throws IOException
     {
-        // put your code here
-        return x + y;
+        setUpOrderList();
+        totalMoneyRaised();
+        mostPopularMethod();
     }
+
+    public void setUpOrderList() throws IOException
+    {
+        System.out.println("client order");
+        System.out.println("** Preparing to read data file.");
+
+        // read file, fetch data as String array containing the rows
+        String[] dataRows = orderFile.readCSVtable();
+        noOfTickets = dataRows.length - 1;
+
+        System.out.println("** " + noOfTickets + " rows read.\n\n");
+        orderList = new TICKET[noOfTickets];
+        for  (int i = 0; i < noOfTickets; i++) {
+            orderList[i] = new TICKET();
+             orderList[i].readTicketDetails(dataRows[i]);
+        }
+       
+    }
+        
+    public void totalMoneyRaised()
+        {
+            // placeholder, add detail later
+        }
+
+        
+    public void mostPopularMethod()
+        {
+
+        }
+
+    public void displayTicketOrders() {
+    // Heading for the display
+    System.out.println("A listing of all applicants for the next year\n");
+
+    for  (int i = 0; i < noOfTickets; i++) {
+        orderList[i].displayDetails();
+    }
+    // 2 blank line to separate this report from others.
+    System.out.print("\n\n\n");
+}
+
+
 }

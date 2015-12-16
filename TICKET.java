@@ -16,27 +16,33 @@ public class TICKET
         noOfTickets = 0;
         methodOfPurchase = "";
     }
-    
-    public void readTickets(String dataItems)
+
+    public void readTicketDetails(String dataItems)
     {
-       String[] rowItems = dataItems.split(",");
-       customerId = (rowItems[1]);
-       ticketId = (rowItems[2]);
-       noOfTickets = (Integer.parseInt(rowItems[3]));
-       methodOfPurchase = (rowItems[4]);
+        String[] rowItems = dataItems.split(",");
+        customerId = (rowItems[0]);
+        ticketId = (rowItems[1]);
+        noOfTickets = (Integer.parseInt(rowItems[2]));
+        methodOfPurchase = (rowItems[3]);
     }
-    
+
     public String writeDetails()
     {
-       String memberData = "";
-    memberData = memberData.concat(customerId);
-    memberData = memberData.concat(",");
-    memberData = memberData.concat(ticketId);
-    memberData = memberData.concat(",");
-    memberData = memberData.concat(Integer.toString(noOfTickets));
-    memberData = memberData.concat(",");
-    memberData = memberData.concat(methodOfPurchase);
-    return memberData;  
+        String memberData = "";
+        memberData = memberData.concat(customerId);
+        memberData = memberData.concat(",");
+        memberData = memberData.concat(ticketId);
+        memberData = memberData.concat(",");
+        memberData = memberData.concat(Integer.toString(noOfTickets));
+        memberData = memberData.concat(",");
+        memberData = memberData.concat(methodOfPurchase);
+        return memberData;  
     }
-    
+  public void displayDetails()
+  {
+    System.out.println("details: "+  + " " + surname);
+    System.out.println(", mark is " + mark);
+    System.out.println();
+  }
+   
 }
