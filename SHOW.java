@@ -32,32 +32,30 @@ public class SHOW
         orderList = new TICKET[noOfTickets];
         for  (int i = 0; i < noOfTickets; i++) {
             orderList[i] = new TICKET();
-             orderList[i].readTicketDetails(dataRows[i]);
+            orderList[i].readTicketDetails(dataRows[i]);
         }
-       
+
     }
-        
+
     public void totalMoneyRaised()
-        {
-            // placeholder, add detail later
-        }
+    {
+        // placeholder, add detail later
+    }
 
-        
     public void mostPopularMethod()
-        {
+    {
 
-        }
+    }
 
     public void displayTicketOrders() {
-    // Heading for the display
-    System.out.println("A listing of all applicants for the next year\n");
+        // Heading for the display
+        System.out.println("A listing of all applicants for the next year\n");
 
-    for  (int i = 0; i < noOfTickets; i++) {
-        orderList[i].displayDetails();
+        for  (int i = 0; i < noOfTickets; i++) {
+            orderList[i].displayDetails();
+        }
+        // 2 blank line to separate this report from others.
+        System.out.print("\n\n\n");
     }
-    // 2 blank line to separate this report from others.
-    System.out.print("\n\n\n");
-}
-
 
 }
