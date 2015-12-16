@@ -38,11 +38,6 @@ public class TICKET
         memberData = memberData.concat(methodOfPurchase);
         return memberData;  
     }
-   public void displayDetails()
-  {
-    System.out.println("results: "+ totalMoneyRaised + " " + MostPopularMethod);
-    System.out.println(", mark is " + mark);
-    System.out.println();
-  }
+    
    
 }

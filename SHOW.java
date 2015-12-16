@@ -26,7 +26,7 @@ public class SHOW
 
         // read file, fetch data as String array containing the rows
         String[] dataRows = orderFile.readCSVtable();
-        noOfTickets = dataRows.length - 1;
+        noOfTickets = dataRows.length;
 
         System.out.println("** " + noOfTickets + " rows read.\n\n");
         orderList = new TICKET[noOfTickets];
@@ -39,7 +39,7 @@ public class SHOW
 
     public void totalMoneyRaised()
     {
-        // placeholder, add detail later
+        
     }
 
     public void mostPopularMethod()
@@ -47,15 +47,6 @@ public class SHOW
 
     }
 
-    public void displayTicketOrders() {
-        // Heading for the display
-        System.out.println("A listing of all applicants for the next year\n");
-
-        for  (int i = 0; i < noOfTickets; i++) {
-            orderList[i].displayDetails();
-        }
-        // 2 blank line to separate this report from others.
-        System.out.print("\n\n\n");
-    }
+   
 
 }
