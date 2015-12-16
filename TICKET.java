@@ -17,6 +17,27 @@ public class TICKET
         methodOfPurchase = "";
     }
 
+        
+    public String getCustomerId()
+    {
+        return customerId;
+    }
+    
+    public String getTicketId()
+    {
+        return ticketId;
+    }
+    
+    public int getNoOfTickets()
+    {
+        return noOfTickets;
+    }
+    
+    public String getMethodOfPurchase()
+    {
+        return methodOfPurchase;
+    }
+    
     public void readTicketDetails(String dataItems)
     {
         String[] rowItems = dataItems.split(",");
