@@ -84,24 +84,30 @@ public class SHOW
     public void writeFile() throws IOException
     {
         String fileContent ="";
+        int count = 0;
         for(int i = 0; i < noOfTickets; i++)
         {
-            if (orderList[i].getTicketId().startsWith("F"))
+            count = count + 1;
+            if (count>1)
             {
-                fileContent = fileContent.concat("\n");
-            } 
-              fileContent = fileContent.concat(orderList[i].writeDetails());
+
+            fileContent = fileContent.concat("\n");
+                if (orderList[i].getTicketId().startsWith("F"))
+                {
+                    fileContent = fileContent.concat(orderList[i].writeDetails());
+                } 
+                
+            }
+            System.out.println("** Preparing to write friday data file.");
+            resultFile.writeCSVtable(fileContent);
+            System.out.println("** File written and closed.");
         }
-        System.out.println("** Preparing to write friday data file.");
-        resultFile.writeCSVtable(fileContent);
-        System.out.println("** File written and closed.");
-    }
 
-    public void displayData()
-    {
-        System.out.println("Essell Academy Choral Shield" +Calendar.getInstance().get(Calendar.YEAR));
-        System.out.println("The mostpopular method of purchase is: " + mostPopularMethod);
-        System.out.println("The total raisedfor charity is: £" + total);
+        public void displayData()
+        {
+            System.out.println("Essell Academy Choral Shield" +Calendar.getInstance().get(Calendar.YEAR));
+            System.out.println("The mostpopular method of purchase is: " + mostPopularMethod);
+            System.out.println("The total raisedfor charity is: £" + total);
 
+        }
     }
-}

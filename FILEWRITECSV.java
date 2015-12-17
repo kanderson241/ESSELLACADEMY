@@ -11,17 +11,26 @@ public class FILEWRITECSV
 
 
 
-    public void writeCSVtable(String outBuffer) throws IOException
-    {
-        String csvFile;
-        
-        csvFile = "fridayOutput.csv";
+   public void writeCSVtable(String outBuffer) throws IOException
+   {
+       String csvFile;
+       // Create a file chooser
+       File currentDir = new File("").getAbsoluteFile();
+       final JFileChooser fc = new JFileChooser(currentDir);
+       // In response to a button click:
+       int returnVal = fc.showSaveDialog(null);
+       // open file
+       File file = fc.getSelectedFile();
+       // obtain filename
+       csvFile = file.getName();
 
-        // open the file
-        fWriter = new FileWriter(csvFile);    
-        // write ALL the to the file in 1 burst
-        fWriter.write(outBuffer); 
-        // close the file
-        fWriter.close();
-    } 
+
+
+       // open the file
+       fWriter = new FileWriter(csvFile);   
+       // write ALL the to the file in 1 burst
+       fWriter.write(outBuffer);
+       // close the file
+       fWriter.close();
+   }  
 }
