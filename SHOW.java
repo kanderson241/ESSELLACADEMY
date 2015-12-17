@@ -23,7 +23,7 @@ public class SHOW
         totalMoneyRaised();
         mostPopularMethod();
         displayData();
-       writeFile();
+        writeFile();
     }
 
     public void setUpOrderList() throws IOException
@@ -83,21 +83,25 @@ public class SHOW
 
     public void writeFile() throws IOException
     {
-        String data = "";
+        String fileContent ="";
         for(int i = 0; i < noOfTickets; i++)
         {
             if (orderList[i].getTicketId().startsWith("F"))
             {
-                data.concat(orderList[i].writeDetails() + "\n");
+                fileContent = fileContent.concat("\n");
             } 
+              fileContent = fileContent.concat(orderList[i].writeDetails());
         }
-        resultFile.writeCSVtable(data);
+        System.out.println("** Preparing to write friday data file.");
+        resultFile.writeCSVtable(fileContent);
+        System.out.println("** File written and closed.");
     }
-        public void displayData()
-        {
-            System.out.println("Essell Academy Choral Shield" +Calendar.getInstance().get(Calendar.YEAR));
-            System.out.println("The mostpopular method of purchase is: " + mostPopularMethod);
-            System.out.println("The total raisedfor charity is: £" + total);
 
-        }
+    public void displayData()
+    {
+        System.out.println("Essell Academy Choral Shield" +Calendar.getInstance().get(Calendar.YEAR));
+        System.out.println("The mostpopular method of purchase is: " + mostPopularMethod);
+        System.out.println("The total raisedfor charity is: £" + total);
+
     }
+}
