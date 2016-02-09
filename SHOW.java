@@ -88,19 +88,23 @@ public class SHOW
         for(int i = 0; i < noOfTickets; i++)
         {
             count = count + 1;
-            if (count>1)
-            {
-                fileContent = fileContent.concat("\n");
-            }
+        
             if (orderList[i].getTicketId().startsWith("F"))
             {
                 fileContent = fileContent.concat(orderList[i].writeDetails());
             } 
-            System.out.println("** Preparing to write friday data file.");
+                 
+            if (count>1)
+            {
+                fileContent = fileContent.concat("\n");
+            }
+           
+
+        }
+         System.out.println("** Preparing to write friday data file.");
             resultFile.writeCSVtable(fileContent);
             System.out.println("** File written and closed.");
 
-        }
     }
     public void displayData()
     {
