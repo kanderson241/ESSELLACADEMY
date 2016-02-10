@@ -88,28 +88,29 @@ public class SHOW
         for(int i = 0; i < noOfTickets; i++)
         {
             count = count + 1;
-        
+
             if (orderList[i].getTicketId().startsWith("F"))
             {
                 fileContent = fileContent.concat(orderList[i].writeDetails());
+                if (count>1)
+                {
+                    fileContent = fileContent.concat("\n");
+                }
+
             } 
-                 
-            if (count>1)
-            {
-                fileContent = fileContent.concat("\n");
-            }
-           
+            
 
         }
-         System.out.println("** Preparing to write friday data file.");
-            resultFile.writeCSVtable(fileContent);
-            System.out.println("** File written and closed.");
+
+        System.out.println("** Preparing to write friday data file.");
+        resultFile.writeCSVtable(fileContent);
+        System.out.println("** File written and closed.");
 
     }
+
     public void displayData()
     {
 
-            
         System.out.println("Essell Academy Choral Shield" +Calendar.getInstance().get(Calendar.YEAR));
         System.out.println("The mostpopular method of purchase is: " + mostPopularMethod);
         System.out.println("The total raisedfor charity is: £" + total);
