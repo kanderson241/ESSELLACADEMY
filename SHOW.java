@@ -5,16 +5,14 @@ public class SHOW
 {
     private TICKET orderList[];
     int noOfTickets;
-    FILEREADCSV orderFile;
+    FILEREADCSV orderFile;      // reads the file
     FILEWRITECSV resultFile;    // to write data to storage
     int total;
     String mostPopularMethod;
     public SHOW()
     {
-
         orderFile = new FILEREADCSV();
         resultFile = new FILEWRITECSV() ;
-
     }
 
     public void processTicketOrder() throws IOException
@@ -42,6 +40,7 @@ public class SHOW
 
     public void totalMoneyRaised()
     {
+        // decides wehther the ticket is a friday ticket or not so the price can be declared
         for(int i = 0; i < noOfTickets; i++)
         {
             if (orderList[i].getTicketId().startsWith("F"))
@@ -57,6 +56,7 @@ public class SHOW
 
     public void mostPopularMethod()
     {
+        // finds the most popular method for purchase
         int schoolPurchases = 0;
         int websitePurchases = 0;
         for(int i = 0; i < noOfTickets; i++) 
@@ -83,6 +83,7 @@ public class SHOW
 
     public void writeFile() throws IOException
     {
+        //writes the data files
         String fileContent ="";
         int count = 0;
         for(int i = 0; i < noOfTickets; i++)

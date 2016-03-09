@@ -11,13 +11,13 @@ public class TICKET
 
     public TICKET()
     {
+        //declaring variables
         customerId = "";
         ticketId = "";
         noOfTickets = 0;
         methodOfPurchase = "";
     }
-
-        
+    
     public String getCustomerId()
     {
         return customerId;
@@ -49,6 +49,7 @@ public class TICKET
 
     public String writeDetails()
     {
+        // adding the variables to a string
         String memberData = "";
         memberData = memberData.concat(customerId);
         memberData = memberData.concat(",");
