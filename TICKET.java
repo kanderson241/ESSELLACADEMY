@@ -40,6 +40,7 @@ public class TICKET
     
     public void readTicketDetails(String dataItems)
     {
+        //sets up reading file
         String[] rowItems = dataItems.split(",");
         customerId = (rowItems[0]);
         ticketId = (rowItems[1]);

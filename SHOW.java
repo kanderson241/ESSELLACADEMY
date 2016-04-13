@@ -17,6 +17,7 @@ public class SHOW
 
     public void processTicketOrder() throws IOException
     {
+        // declaring variables
         setUpOrderList();
         totalMoneyRaised();
         mostPopularMethod();
